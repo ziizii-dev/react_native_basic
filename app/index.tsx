@@ -9,7 +9,6 @@ export default function Index() {
   // Use useRef to store intervals, typed explicitly to avoid type issues
   const increaseInterval = useRef<NodeJS.Timeout | null>(null);
   const decreaseInterval = useRef<NodeJS.Timeout | null>(null);
-
   // Function to update the clock every second
   useEffect(() => {
     const interval = setInterval(() => {
