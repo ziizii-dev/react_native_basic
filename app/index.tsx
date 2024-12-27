@@ -24,7 +24,6 @@ export default function Index() {
       >
         {/* Content here */}
       </View>
-
       <View
         style={{
           width: 200,
