@@ -11,6 +11,9 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
 } from "react-native";
+import Counter from "./counterapp";
+import Lable from "./labletitle";
+import Button from "./button";
 
 const App: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -35,6 +38,10 @@ const App: React.FC = () => {
 
     setResult(`Name: ${name}, Age: ${age}, Email: ${email}`);
   };
+  const cancleButton=()=>{
+    
+
+  }
 
   return (
     <KeyboardAvoidingView
@@ -47,7 +54,7 @@ const App: React.FC = () => {
           keyboardShouldPersistTaps="handled"
         >
           <View style={styles.innerContainer}>
-            <Text style={styles.header}>Data Input Form</Text>
+              <Lable title="Data Input Form"/>
 
             <View style={styles.inputGroup}>
               <Text style={styles.label}>Name:</Text>
@@ -80,10 +87,23 @@ const App: React.FC = () => {
                 keyboardType="email-address"
               />
             </View>
+            <View>
 
-            <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-              <Text style={styles.buttonText}>Submit</Text>
+            </View>
+              <View style={styles.buttonContainer}>
+              <TouchableOpacity  onPress={cancleButton} >
+              <Button title="Cancle"/>
             </TouchableOpacity>
+              <TouchableOpacity onPress={handleSubmit}>
+              {/* <Text style={styles.buttonText}>Submit</Text> */}
+              <Button title="Submit"/>
+
+            </TouchableOpacity>
+           
+
+              </View>
+
+           
 
             {result ? (
               <View style={styles.resultContainer}>
@@ -94,6 +114,9 @@ const App: React.FC = () => {
           </View>
         </ScrollView>
       </TouchableWithoutFeedback>
+    
+     
+
     </KeyboardAvoidingView>
   );
 };
@@ -138,6 +161,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 5,
     marginTop: 20,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    width: "80%",
+    marginTop: 10, // Added a little spacing between counter text and buttons
   },
   buttonText: {
     color: "#fff",

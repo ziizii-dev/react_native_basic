@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Text, View, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 
-export default function Index() {
+export default function Counter() {
   const [counter, setCounter] = useState(0);
   const [time, setTime] = useState(new Date().toLocaleTimeString());
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
