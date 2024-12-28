@@ -3,6 +3,7 @@ import {
   View,
   Text,
   TextInput,
+  Alert,
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
@@ -14,6 +15,7 @@ import {
 import Counter from "./counterapp";
 import Lable from "./labletitle";
 import Button from "./button";
+import Sidebar from "./sidebar";
 
 const App: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -38,16 +40,45 @@ const App: React.FC = () => {
 
     setResult(`Name: ${name}, Age: ${age}, Email: ${email}`);
   };
-  const cancleButton=()=>{
-    
+  const cancleButton = () => {
+    Alert.alert(
+      "Alert", 
+      "Do you really want to cancel?",
+      [
+        {
+          text: "Cancel", 
+          onPress: () => console.log("Cancel Pressed"), 
+          style: "cancel", 
+        },
+        {
+          text: "OK", 
+          onPress: () => console.log("OK Pressed"), // Action for the OK button
+        },
+      ],
+      { cancelable: false } // Prevent closing the alert by tapping outside
+    );
+  };
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
-  }
+  const toggleSidebar = () => {
+    setIsSidebarVisible(!isSidebarVisible); // Toggle sidebar visibility
+  };
+
 
   return (
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : undefined}
     >
+       <TouchableOpacity onPress={toggleSidebar} style={styles.hamburgerButton}>
+        <Text style={styles.buttonText}>☰</Text>  
+      </TouchableOpacity>
+     
+
+      {isSidebarVisible && (
+        <Sidebar title="" toggleSidebar={toggleSidebar} />
+      )}
+      
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <ScrollView
           contentContainerStyle={{ flexGrow: 1 }}
@@ -168,11 +199,11 @@ const styles = StyleSheet.create({
     width: "80%",
     marginTop: 10, // Added a little spacing between counter text and buttons
   },
-  buttonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
+  // buttonText: {
+  //   color: "#fff",
+  //   fontSize: 16,
+  //   fontWeight: "bold",
+  // },
   resultContainer: {
     marginTop: 30,
     alignItems: "center",
@@ -186,6 +217,27 @@ const styles = StyleSheet.create({
   resultText: {
     fontSize: 16,
     color: "#555",
+  },
+  containerSidebar: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f0f0f0",
+  },
+  mainContent: {
+    marginTop: 20,
+    fontSize: 18,
+  },
+  hamburgerButton: {
+    position: "absolute",
+    top: 40, // Adjust this for positioning on top of the screen
+    left: 20, // Adjust this for left positioning
+    zIndex: 10,
+    // backgroundColor:"gray"
+  },
+  buttonText: {
+    fontSize: 30,
+    fontWeight: "bold",
   },
 });
 
