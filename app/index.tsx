@@ -63,8 +63,6 @@ const App: React.FC = () => {
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible); // Toggle sidebar visibility
   };
-
-
   return (
     <KeyboardAvoidingView
       style={styles.container}

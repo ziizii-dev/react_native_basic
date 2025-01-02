@@ -11,7 +11,6 @@ export default function Alert({ title, onClose }: { title: string, onClose: () =
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   alertBox: {
     padding: 20,
