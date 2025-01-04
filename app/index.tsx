@@ -42,16 +42,16 @@ const App: React.FC = () => {
   };
   const cancleButton = () => {
     Alert.alert(
-      "Alert", 
+      "Alert",
       "Do you really want to cancel?",
       [
         {
-          text: "Cancel", 
-          onPress: () => console.log("Cancel Pressed"), 
-          style: "cancel", 
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel",
         },
         {
-          text: "OK", 
+          text: "OK",
           onPress: () => console.log("OK Pressed"), // Action for the OK button
         },
       ],
@@ -63,27 +63,25 @@ const App: React.FC = () => {
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible); // Toggle sidebar visibility
   };
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : undefined}
     >
-       <TouchableOpacity onPress={toggleSidebar} style={styles.hamburgerButton}>
-        <Text style={styles.buttonText}>☰</Text>  
+      <TouchableOpacity onPress={toggleSidebar} style={styles.hamburgerButton}>
+        <Text style={styles.buttonText}>☰</Text>
       </TouchableOpacity>
-     
 
-      {isSidebarVisible && (
-        <Sidebar title="" toggleSidebar={toggleSidebar} />
-      )}
-      
+      {isSidebarVisible && <Sidebar title="" toggleSidebar={toggleSidebar} />}
+
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <ScrollView
           contentContainerStyle={{ flexGrow: 1 }}
           keyboardShouldPersistTaps="handled"
         >
           <View style={styles.innerContainer}>
-              <Lable title="Data Input Form"/>
+            <Lable title="Data Input Form" />
 
             <View style={styles.inputGroup}>
               <Text style={styles.label}>Name:</Text>
@@ -116,23 +114,16 @@ const App: React.FC = () => {
                 keyboardType="email-address"
               />
             </View>
-            <View>
-
-            </View>
-              <View style={styles.buttonContainer}>
-              <TouchableOpacity  onPress={cancleButton} >
-              <Button title="Cancle"/>
-            </TouchableOpacity>
+            <View></View>
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity onPress={cancleButton}>
+                <Button title="Cancle" />
+              </TouchableOpacity>
               <TouchableOpacity onPress={handleSubmit}>
-              {/* <Text style={styles.buttonText}>Submit</Text> */}
-              <Button title="Submit"/>
-
-            </TouchableOpacity>
-           
-
-              </View>
-
-           
+                {/* <Text style={styles.buttonText}>Submit</Text> */}
+                <Button title="Submit" />
+              </TouchableOpacity>
+            </View>
 
             {result ? (
               <View style={styles.resultContainer}>
@@ -143,9 +134,6 @@ const App: React.FC = () => {
           </View>
         </ScrollView>
       </TouchableWithoutFeedback>
-    
-     
-
     </KeyboardAvoidingView>
   );
 };
