@@ -103,7 +103,6 @@ const App: React.FC = () => {
                 keyboardType="numeric"
               />
             </View>
-
             <View style={styles.inputGroup}>
               <Text style={styles.label}>Email:</Text>
               <TextInput
