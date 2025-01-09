@@ -102,7 +102,7 @@ const App: React.FC = () => {
                 placeholder="Enter your age"
                 keyboardType="numeric"
               />
-              
+
             </View>
             <View style={styles.inputGroup}>
               <Text style={styles.label}>Email:</Text>
@@ -114,6 +114,7 @@ const App: React.FC = () => {
                 keyboardType="email-address"
               />
             </View>
+            
             <View></View>
             <View style={styles.buttonContainer}>
               <TouchableOpacity onPress={cancleButton}>
