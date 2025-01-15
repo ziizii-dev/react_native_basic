@@ -113,7 +113,6 @@ const App: React.FC = () => {
                 keyboardType="email-address"
               />
             </View>
-            
             <View></View>
             <View style={styles.buttonContainer}>
               <TouchableOpacity onPress={cancleButton}>
