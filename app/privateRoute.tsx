@@ -5,9 +5,10 @@ export default function Route({ title }: { title: string }) {
   return (
     <View style={styles.buttonContainer}>
       <Text style={styles.text}>{title}</Text>
+      
     </View>
   );
-  
+
 }
 
 
