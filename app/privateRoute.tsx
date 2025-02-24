@@ -11,7 +11,6 @@ export default function Route({ title }: { title: string }) {
 
 }
 
-
 const styles = StyleSheet.create({
   buttonContainer: {
     padding: 10,
