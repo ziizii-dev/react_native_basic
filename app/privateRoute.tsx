@@ -7,10 +7,11 @@ export default function Route({ title }: { title: string }) {
       <Text style={styles.text}>{title}</Text>
 
     </View>
-    
+
   );
 
 }
+
 
 const styles = StyleSheet.create({
   buttonContainer: {
